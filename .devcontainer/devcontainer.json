@@ -1,0 +1,36 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "hostRequirements": {
+      "cpus": 4
+    },
+    "waitFor": "onCreateCommand",
+    "updateContentCommand": "npm install",
+    "postCreateCommand": "npm i joi && npm i express && npm i --save-dev @types/express && npm i --save-dev prisma && npm i winston && npm i bcrypt && npm i --save-dev @types/bcript && npm i uuid && npm i --save-dev @types/uuid && npm i --save-dev jest @types/jest && npm i --save-dev babel-jest @babel/preset-env",
+    "postAttachCommand": {
+      "server": "npm start"
+    },
+    "customizations": {
+        "vscode": {
+			"settings": {
+				// settings
+				   "editor.fontSize": 15,
+    				"terminal.integrated.fontSize": 14,
+    				"workbench.colorTheme": "GitHub Dark Dimmed",
+                    "editor.formatOnSave": true,
+			}
+        },
+      "codespaces": {
+        "openFiles": [
+          "index.js"
+        ]
+      }
+    },
+    "portsAttributes": {
+      "3000": {
+        "label": "Application",
+        "onAutoForward": "openPreview"
+      }
+    },
+    "forwardPorts": [3000]
+  }
+  
